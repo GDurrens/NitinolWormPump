@@ -1024,15 +1024,11 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 </classes>
 <parts>
 <part name="U$1" library="fab" deviceset="ATTINY45" device="SI"/>
-<part name="R1" library="fab" deviceset="RES-US" device="1206FAB" value="150"/>
-<part name="R2" library="fab" deviceset="RES-US" device="1206FAB" value="150"/>
+<part name="R1" library="fab" deviceset="RES-US" device="1206FAB" value="100"/>
+<part name="R2" library="fab" deviceset="RES-US" device="1206FAB" value="100"/>
 <part name="R3" library="fab" deviceset="RES-US" device="1206FAB" value="10k"/>
 <part name="R4" library="fab" deviceset="RES-US" device="1206FAB" value="10k"/>
 <part name="R5" library="fab" deviceset="RES-US" device="1206FAB" value="10k"/>
-<part name="R6" library="fab" deviceset="RES-US" device="1206FAB" value="0"/>
-<part name="R7" library="fab" deviceset="RES-US" device="1206FAB" value="0"/>
-<part name="T1" library="fab" deviceset="NMOSFET" device="SOT23"/>
-<part name="T2" library="fab" deviceset="NMOSFET" device="SOT23"/>
 <part name="R8" library="fab" deviceset="RES-US" device="1206FAB" value="100"/>
 <part name="R9" library="fab" deviceset="RES-US" device="1206FAB" value="100"/>
 <part name="U$2" library="fab" deviceset="LED" device="FAB1206"/>
@@ -1066,6 +1062,8 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 <part name="PAD6" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
 <part name="P+7" library="supply1" deviceset="V+" device=""/>
+<part name="T3" library="fab" deviceset="NMOSFET" device="TO252"/>
+<part name="T4" library="fab" deviceset="NMOSFET" device="TO252"/>
 </parts>
 <sheets>
 <sheet>
@@ -1078,10 +1076,6 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 <instance part="R3" gate="G$1" x="144.78" y="48.26" rot="R90"/>
 <instance part="R4" gate="G$1" x="190.5" y="48.26" rot="R90"/>
 <instance part="R5" gate="G$1" x="-2.54" y="63.5" rot="R90"/>
-<instance part="R6" gate="G$1" x="160.02" y="86.36" rot="R90"/>
-<instance part="R7" gate="G$1" x="210.82" y="86.36" rot="R90"/>
-<instance part="T1" gate="A" x="160.02" y="71.12"/>
-<instance part="T2" gate="A" x="210.82" y="71.12"/>
 <instance part="R8" gate="G$1" x="132.08" y="58.42" rot="R90"/>
 <instance part="R9" gate="G$1" x="177.8" y="58.42" rot="R90"/>
 <instance part="U$2" gate="G$1" x="132.08" y="38.1"/>
@@ -1118,22 +1112,12 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 <instance part="PAD6" gate="1" x="114.3" y="99.06" rot="R270"/>
 <instance part="GND11" gate="1" x="114.3" y="86.36"/>
 <instance part="P+7" gate="1" x="101.6" y="99.06"/>
+<instance part="T3" gate="A" x="160.02" y="71.12"/>
+<instance part="T4" gate="A" x="210.82" y="71.12"/>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="N$1" class="0">
-<segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<pinref part="T1" gate="A" pin="G"/>
-</segment>
-</net>
-<net name="N$2" class="0">
-<segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<pinref part="T2" gate="A" pin="G"/>
-</segment>
-</net>
 <net name="N$3" class="0">
 <segment>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -1189,16 +1173,16 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 </net>
 <net name="N$11" class="0">
 <segment>
-<pinref part="T2" gate="A" pin="D"/>
-<pinref part="R7" gate="G$1" pin="1"/>
-<wire x1="210.82" y1="76.2" x2="210.82" y2="81.28" width="0.1524" layer="91"/>
+<pinref part="T4" gate="A" pin="D"/>
+<pinref part="PAD4" gate="1" pin="P"/>
+<wire x1="210.82" y1="76.2" x2="210.82" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
-<pinref part="R6" gate="G$1" pin="1"/>
-<pinref part="T1" gate="A" pin="D"/>
-<wire x1="160.02" y1="81.28" x2="160.02" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="T3" gate="A" pin="D"/>
+<pinref part="PAD2" gate="1" pin="P"/>
+<wire x1="160.02" y1="76.2" x2="160.02" y2="96.52" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -1213,9 +1197,9 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 <pinref part="GND2" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="T1" gate="A" pin="S"/>
 <wire x1="160.02" y1="66.04" x2="160.02" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
+<pinref part="T3" gate="A" pin="S"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="C"/>
@@ -1228,9 +1212,9 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 <pinref part="GND5" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="T2" gate="A" pin="S"/>
 <wire x1="210.82" y1="66.04" x2="210.82" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="GND6" gate="1" pin="GND"/>
+<pinref part="T4" gate="A" pin="S"/>
 </segment>
 <segment>
 <pinref part="GND8" gate="1" pin="GND"/>
@@ -1388,18 +1372,16 @@ Variants with postfix FAB are widened to allow the routing of internal traces</d
 <label x="-7.62" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="N$1" class="0">
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
-<pinref part="PAD4" gate="1" pin="P"/>
-<wire x1="210.82" y1="91.44" x2="210.82" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<pinref part="T4" gate="A" pin="G"/>
 </segment>
 </net>
-<net name="N$8" class="0">
+<net name="N$2" class="0">
 <segment>
-<pinref part="R6" gate="G$1" pin="2"/>
-<pinref part="PAD2" gate="1" pin="P"/>
-<wire x1="160.02" y1="91.44" x2="160.02" y2="96.52" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<pinref part="T3" gate="A" pin="G"/>
 </segment>
 </net>
 </nets>
